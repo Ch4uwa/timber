@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "defines.h"
-
+#include <time.h>
 
 
 #endif // !INCLUDES_H

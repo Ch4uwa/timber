@@ -2,7 +2,6 @@
 #include "AssetManager.h"
 
 
-
 int main()
 {
 	sf::VideoMode vm(VM_WIDTH, VM_HEIGHT);
@@ -10,26 +9,29 @@ int main()
 
 	AssetManager am;
 	am.load_environment();
-
-
+	am.set_position();
+	am.activate_bee(true);
+	am.activate_cloud(true,true,true);
 
 	while (window.isOpen())
 	{
-
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
 			window.close();
 		}
 
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+		// activate a bee and set the speed
 
+
+		// clear surface
+		window.clear();
+
+
+		// Draw surface
 		am.draw(window);
-		//window.display();
-	}
 
+
+		// Display on surface
+		window.display();
+	}
 }
