@@ -1,7 +1,5 @@
 #include "includes.h"
-
-
-
+#include "AssetManager.h"
 
 
 
@@ -9,6 +7,9 @@ int main()
 {
 	sf::VideoMode vm(VM_WIDTH, VM_HEIGHT);
 	sf::RenderWindow window(vm, "TIMBER!");
+
+	AssetManager am;
+	am.load_environment();
 
 
 
@@ -27,10 +28,8 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-
-
-		
-		window.display();
+		am.draw(window);
+		//window.display();
 	}
+
 }

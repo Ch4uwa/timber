@@ -1,6 +1,6 @@
 #include "AssetManager.h"
 
-void AssetManager::load_environment()
+bool AssetManager::load_environment()
 {
 	
 	// load assets
@@ -18,16 +18,21 @@ void AssetManager::load_environment()
 		else
 		{
 			std::cerr << "Failed to load tree\n";
-			this->load_success = false;
+			return false;
 		}
 	}
 	else
 	{
 		std::cerr << "Failed to load background, closing window\n";
-		this->load_success = false;
+		return false;
 	}
+	return true;
 }
 
-void AssetManager::draw(sf::RenderWindow)
+void AssetManager::draw(sf::RenderWindow& window)
 {
+	window.clear();
+	window.draw(sprite_bg);
+	window.draw(sprite_tree);
+	window.display();
 }
